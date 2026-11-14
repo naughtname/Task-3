@@ -1,0 +1,24 @@
+def represent_sparse_matrix(matrix):
+  sparse_matrix = []
+  rows = len(matrix)
+  cols = len(matrix[0])
+
+  # Count non-zero elements
+  non_zero_count = 0
+  for i in range(rows):
+    for j in range(cols):
+      if matrix[i][j] != 0:
+        sparse_matrix.append([i, j, matrix[i][j]])
+        non_zero_count += 1
+
+  # Header row: [Total Rows, Total Cols, Total Non-Zero Values]
+  header = [rows, cols, non_zero_count]
+  print("Triplet Representation (Row, Col, Value):")
+  print(header)
+  for triplet in sparse_matrix:
+    print(triplet)
+
+
+# Example matrix:
+mat = [[0, 0, 3], [4, 0, 0], [0, 5, 0]]
+represent_sparse_matrix(mat)
